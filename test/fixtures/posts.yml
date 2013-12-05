@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  company: MyString
+  salary: 1
+  check: false
+
+two:
+  title: MyString
+  company: MyString
+  salary: 1
+  check: false
