@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0.rc2'
 gem 'bootstrap-sass', '~> 2.2.2.0'
 gem 'devise'
-gem 'simple_form'
+gem 'simple_form', '~> 3.0.0.rc'
 
 # Use sqlite3 as the database for Active Record
 group :production do
