@@ -6,6 +6,7 @@
       <th>Title</th>
       <th>Company</th>
       <th>Salary</th>
+      <th>Country</th>
       <th>Check</th>
       <th></th>
       <th></th>
@@ -15,9 +16,7 @@
 
   <tbody>
     <%= render @posts %>
+    
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Post', new_post_path %>
+<%= will_paginate @posts %>
