@@ -4,7 +4,7 @@
   <%= f.input :title %>
   <%= f.input :company %>
   <%= f.input :salary %>
-  <%= f.input :country %>
+  <%= f.association :location, label_method: :name, value_method: :id %>
   <%= f.input :check %>
 
   <div class="form-actions">

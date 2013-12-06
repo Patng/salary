@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, except: [:new, :create, :show]
+  before_filter :authenticate_user!, except: [:new, :create, :show, :search]
 
   # GET /posts
   # GET /posts.json
@@ -9,6 +9,10 @@ class PostsController < ApplicationController
   end
 
   def search
+    title = params[:title]
+    company = params[:company]
+    location_id = params[:location_id]
+    @posts = Post.search(title, company, location_id)
   end
 
   # GET /posts/1
@@ -73,6 +77,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :company, :salary, :country, :check)
+      params.require(:post).permit(:title, :company, :salary, :location_id, :check)
     end
 end

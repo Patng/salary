@@ -7,7 +7,6 @@ gem 'devise'
 gem 'simple_form', '~> 3.0.0.rc'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
-gem 'country_select'
 
 # Use sqlite3 as the database for Active Record
 group :production do

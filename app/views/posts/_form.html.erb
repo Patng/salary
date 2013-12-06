@@ -4,7 +4,7 @@
   <%= f.input :title %>
   <%= f.input :company %>
   <%= f.input :salary %>
-  <%= f.input :country, priority: [ "Hong Kong" ] %>
+  <%= f.association :location, label_method: :name, value_method: :id %>
 
   <div class="form-actions">
     <%= f.button :submit, class: "btn btn-primary" %>
