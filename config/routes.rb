@@ -10,6 +10,7 @@ Salary::Application.routes.draw do
   resources :posts do
     collection do
       post :import
+      get :export
     end
   end
 

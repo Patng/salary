@@ -13,6 +13,15 @@ class PostsController < ApplicationController
     end
   end
 
+  def export
+    @posts = Post.order("created_at desc")
+    respond_to do |format|
+      format.html
+      format.csv { send_data @posts.to_csv }
+      format.xls # { send_data @posts.to_csv(col_sep: "\t") }
+    end
+  end
+
   def import
     Post.import(params[:file])
     redirect_to posts_path, notice: "Posts imported."

@@ -1,11 +1,5 @@
 <h1>Listing posts</h1>
 
-<p>
-  Download:
-  <%= link_to "CSV", export_posts_path(format: "csv") %> |
-  <%= link_to "Excel", export_posts_path(format: "xls") %>
-</p>
-
 <table class="table table-striped">
   <thead>
     <tr>
@@ -25,11 +19,3 @@
     
   </tbody>
 </table>
-<%= will_paginate @posts %>
-
-<h2>Import Posts</h2>
-
-<%= form_tag import_posts_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
-<% end %>
