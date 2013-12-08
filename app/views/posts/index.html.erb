@@ -1,5 +1,11 @@
 <h1>Listing posts</h1>
 
+<p>
+  Download:
+  <%= link_to "CSV", posts_path(format: "csv") %> |
+  <%= link_to "Excel", posts_path(format: "xls") %>
+</p>
+
 <table class="table table-striped">
   <thead>
     <tr>

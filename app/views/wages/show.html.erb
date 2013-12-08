@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="span6 offset3">
+        <div class="well">
+          <p>
+            <strong>Title:</strong>
+            <%= @wage.title %>
+          </p>
+
+          <p>
+            <strong>Company:</strong>
+            <%= @wage.company %>
+          </p>
+
+          <p>
+            <strong>Location:</strong>
+            <%= @wage.location_id %>
+          </p>
+
+          <p>
+            <strong>Total:</strong>
+            <%= @wage.total %>
+          </p>
+
+          <p>
+            <strong>Avg:</strong>
+            <%= @wage.avg %>
+          </p>
+
+          <p>
+            <strong>High:</strong>
+            <%= @wage.high %>
+          </p>
+
+          <p>
+            <strong>Low:</strong>
+            <%= @wage.low %>
+          </p>
+            <%= link_to 'Edit', edit_wage_path(@wage) %> |
+            <%= link_to 'Back', wages_path %>
+        </div>
+    </div>
+</div>
+
+
+
+
+

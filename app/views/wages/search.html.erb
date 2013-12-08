@@ -1,0 +1,23 @@
+<h1>Listing wages</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Company</th>
+      <th>Location</th>
+      <th>Total</th>
+      <th>Avg</th>
+      <th>High</th>
+      <th>Low</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @wages %>
+  </tbody>
+</table>
+<%= will_paginate @wages %>

@@ -1,18 +1,16 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, except: [:new, :create, :show, :search]
+  before_filter :authenticate_user!, except: [:new, :create, :show]
 
   # GET /posts
   # GET /posts.json
   def index
     @posts = Post.order("created_at desc").page(params[:page]).per_page(20)
-  end
-
-  def search
-    title = params[:title]
-    company = params[:company]
-    location_id = params[:location_id]
-    @posts = Post.search(title, company, location_id)
+    respond_to do |format|
+      format.html
+      format.csv { send_data @posts.to_csv }
+      format.xls # { send_data @posts.to_csv(col_sep: "\t") }
+    end
   end
 
   # GET /posts/1

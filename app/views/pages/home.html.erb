@@ -2,7 +2,7 @@
     <h1>Welcome! </h1>
     <p>to Salary</p>
 
-    <%= form_tag search_posts_path, :method => 'get' do %>
+    <%= form_tag search_wages_path, :method => 'get' do %>
 	    <p>
 	    	<%= text_field_tag :title, params[:title], :placeholder => 'Job Title'%>
 	    	<%= text_field_tag :company, params[:company], :placeholder => 'Company' %>

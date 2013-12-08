@@ -1,0 +1,29 @@
+<h1>Listing wages</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Company</th>
+      <th>Location</th>
+      <th>Total</th>
+      <th>Avg</th>
+      <th>High</th>
+      <th>Low</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @wages %>
+  </tbody>
+</table>
+<%= will_paginate @wages %>
+
+<h2>Import Wages</h2>
+<%= form_tag import_wages_path, multipart: true do%>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>

@@ -6,22 +6,12 @@ class Post < ActiveRecord::Base
 
 	belongs_to :location
 
-def self.search(title, company, location_id)
-    if location_id.present?
-
-        paginate :conditions => ['title LIKE ? AND company LIKE ? AND location_id = ?', "%#{title}%", "%#{company}%", location_id],
-                        :per_page => 20,
-                        :order => 'created_at DESC',
-                        :page => @page,
-                        :total_entries => 200
-
-    else
-
-        paginate :conditions => ['title LIKE ? AND company LIKE ?', "%#{title}%", "%#{company}%"],
-                        :per_page => 20,
-                        :order => 'created_at DESC',
-                        :page => @page,
-                        :total_entries => 200               
-    end
-end
+	def self.to_csv(options = {})
+		CSV.generate(options) do |csv|
+			csv << column_names
+			all.each do |post|
+				csv << post.attributes.values_at(*column_names)
+			end
+		end
+	end
 end

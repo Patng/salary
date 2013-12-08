@@ -1,0 +1,12 @@
+      <tr>
+        <td><%= wage.title %></td>
+        <td><%= wage.company %></td>
+        <td><%= wage.location.name %></td>
+        <td><%= wage.total %></td>
+        <td><%= wage.avg %></td>
+        <td><%= wage.high %></td>
+        <td><%= wage.low %></td>
+        <td><%= link_to 'Show', wage %></td>
+        <td><%= link_to 'Edit', edit_wage_path(wage) %></td>
+        <td><%= link_to 'Destroy', wage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
