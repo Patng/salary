@@ -7,7 +7,11 @@ Salary::Application.routes.draw do
     end
   end
 
-  resources :posts
+  resources :posts do
+    collection do
+      post :import
+    end
+  end
 
   devise_for :users
   root :to => 'pages#home'

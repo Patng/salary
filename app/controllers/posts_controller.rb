@@ -13,6 +13,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def import
+    Post.import(params[:file])
+    redirect_to posts_path, notice: "Posts imported."
+  end
+
   # GET /posts/1
   # GET /posts/1.json
   def show
