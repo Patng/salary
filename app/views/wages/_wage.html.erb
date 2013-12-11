@@ -6,7 +6,9 @@
         <td><%= wage.avg %></td>
         <td><%= wage.high %></td>
         <td><%= wage.low %></td>
-        <td><%= link_to 'Show', wage %></td>
-        <td><%= link_to 'Edit', edit_wage_path(wage) %></td>
-        <td><%= link_to 'Destroy', wage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user.present? %>
+            <td><%= link_to 'Show', wage %></td>
+            <td><%= link_to 'Edit', edit_wage_path(wage) %></td>
+            <td><%= link_to 'Destroy', wage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>

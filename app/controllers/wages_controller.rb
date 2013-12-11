@@ -1,6 +1,6 @@
 class WagesController < ApplicationController
   before_action :set_wage, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, except: [:show, :search]
+  before_filter :authenticate_user!, except: [:search]
 
   # GET /wages
   # GET /wages.json

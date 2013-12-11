@@ -15,9 +15,19 @@ class Wage < ActiveRecord::Base
   def self.search(title, company, location_id, page)
 
     if location_id.present?
-      wages = Wage.where('title LIKE ? AND company LIKE ? AND location_id = ?', "%#{title}%", "%#{company}%", location_id).order('total DESC').limit(200).paginate(:page => page)
+      wages = Wage.where('title LIKE ? AND company LIKE ? AND location_id = ?', "%#{title}%", "%#{company}%", location_id).order('total DESC')
+      if wages.count > 200
+        wages = wages.paginate(:page => page, :total_entries => 200)
+      else
+        wages = wages.paginate(:page => page)
+      end
     else
-      wages = Wage.where('title LIKE ? AND company LIKE ?', "%#{title}%", "%#{company}%").order('total DESC').limit(200).paginate(:page => page)
+      wages = Wage.where('title LIKE ? AND company LIKE ?', "%#{title}%", "%#{company}%").order('total DESC')
+      if wages.count > 200
+        wages = wages.paginate(:page => page, :total_entries => 200)
+      else
+        wages = wages.paginate(:page => page)
+      end
     end
     return wages
   end
