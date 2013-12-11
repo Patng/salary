@@ -10,21 +10,17 @@ class Wage < ActiveRecord::Base
 
 	belongs_to :location
 
-	def self.search(title, company, location_id, page)
-        if location_id.present?
+  self.per_page = 10
 
-            paginate :conditions => ['title LIKE ? AND company LIKE ? AND location_id = ?', "%#{title}%", "%#{company}%", location_id],
-                            :order => "total DESC",
-                            :page => page,
-                            :per_page => 20                       
-        else
+  def self.search(title, company, location_id, page)
 
-            paginate :conditions => ['title LIKE ? AND company LIKE ?', "%#{title}%", "%#{company}%"],
-                            :order => "total DESC",
-                            :page => page,
-                            :per_page => 20                                                                    
-        end
-	end
+    if location_id.present?
+      wages = Wage.where('title LIKE ? AND company LIKE ? AND location_id = ?', "%#{title}%", "%#{company}%", location_id).order('total DESC').limit(200).paginate(:page => page)
+    else
+      wages = Wage.where('title LIKE ? AND company LIKE ?', "%#{title}%", "%#{company}%").order('total DESC').limit(200).paginate(:page => page)
+    end
+    return wages
+  end
 
     def self.import(file)
         spreadsheet = open_spreadsheet(file)
