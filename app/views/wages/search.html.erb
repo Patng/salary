@@ -1,4 +1,4 @@
-<h1>Listing wages</h1>
+<%= render 'searchform' %>
 
 <table class="table">
   <thead>
@@ -23,5 +23,5 @@
 <%= will_paginate @wages %>
 
 <% if @wages.count >200 %>
-  <p>Most recent salaries shown.</p>
+  <p>Only shows the top 200.</p>
 <% end %>

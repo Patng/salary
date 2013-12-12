@@ -6,14 +6,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-             <a class="brand" href="/">Income</a>
+             <a class="brand" href="/">Incomer</a>
 
                 <div class="nav-collapse">
                     <ul class="nav">
 
                     </ul>
                     <ul class="nav pull-right">
-                        <li><%= button_to('Share Income', new_post_path, :method => :get, :class => 'btn') %></li>
+                        <li><%= button_to('Share Salary', new_post_path, :method => :get, :class => 'btn') %></li>
                         <% if user_signed_in? %>
                         <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>                        
                         <% end %>

@@ -1,0 +1,16 @@
+<body class="header-image">
+	<div class="center hero-unit">
+	    <h1>Incomer</h1>
+	    <p>Check and share your salary</p>
+
+	    <%= form_tag search_wages_path, :method => 'get' do %>
+		    <p>
+		    	<%= text_field_tag :title, params[:title], :placeholder => 'Job Title'%>
+		    	<%= text_field_tag :company, params[:company], :placeholder => 'Company' %>
+		    	<%= select_tag :location_id, options_from_collection_for_select(Location.all, :id, :name, params[:location_id]), include_blank: false, :prompt => "Country" %>
+		    	<%= submit_tag "Search", :name => nil, class: "btn btn-primary" %>
+		    </p>
+	    <% end %>
+
+	</div>
+</body>

@@ -10,7 +10,7 @@ class Wage < ActiveRecord::Base
 
 	belongs_to :location
 
-  self.per_page = 10
+  self.per_page = 20
 
   def self.search(title, company, location_id, page)
 
