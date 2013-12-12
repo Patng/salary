@@ -44,9 +44,10 @@ body{
 
 .footer{
     margin-top: 50px;
-    color: $grayLight;
+    color: $white;
+    text-shadow:1px 1px black;
     a{
-        color: $gray;
+        color: $white;
     }
 }
 
